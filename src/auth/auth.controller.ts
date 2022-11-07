@@ -12,6 +12,7 @@ export class AuthController {
     return this.authService.login(authLoginDto);
   }
 
+
   @UseGuards(JwtAuthGuard)
   @Get()
   async Sign() {
