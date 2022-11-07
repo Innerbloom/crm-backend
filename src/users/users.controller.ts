@@ -8,7 +8,6 @@ export class UsersController {
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
-    //console.log(createUserDto); this creates object name and password
     return this.usersService.create(createUserDto);
   }
 

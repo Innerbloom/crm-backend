@@ -1,13 +1,30 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
-@Entity({ name: 'users' })
+export enum enumEvent {
+  LOGIN = 'Login',
+  REGISTRATION = 'Registration',
+}
+
+@Entity({ name: 'logs' })
 export class LogsEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   username: string;
 
-  @Column({ nullable: false })
-  password: string;
+  @CreateDateColumn({ type: 'datetime' })
+  date = new Date();
+
+  @Column({
+    type: 'enum',
+    enum: enumEvent,
+  })
+  event: enumEvent;
 }

@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
 import { User } from './entities/user.entity';
 import { ConfigModule } from '@nestjs/config';
 import { LogsEntity } from './entities/logs.entity';
+import { LogsModule } from './logs/logs.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { LogsEntity } from './entities/logs.entity';
     UsersModule,
     AuthModule,
     TypeOrmModule,
+    LogsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
