@@ -3,7 +3,7 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import { AuthLoginDto } from '../dto/auth.login.dto';
 import { LogsService } from '../logs/logs.service';
-import { enumEvent, LogsEntity } from '../entities/logs.entity';
+import { enumEvent } from '../entities/logs.entity';
 
 @Injectable()
 export class AuthService {

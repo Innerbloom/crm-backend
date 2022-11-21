@@ -22,7 +22,6 @@ export class LogsService {
     }
   }
 
-
   async findAll() {
     return await this.logsEntity.find({
       order: {

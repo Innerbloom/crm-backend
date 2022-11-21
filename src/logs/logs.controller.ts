@@ -7,7 +7,6 @@ export class LogsController {
 
   @Get()
   async findAll() {
-
     return await this.logsService.findAll();
   }
 }

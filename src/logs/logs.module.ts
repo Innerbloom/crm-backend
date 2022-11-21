@@ -9,6 +9,5 @@ import { LogsEntity } from '../entities/logs.entity';
   controllers: [LogsController],
   providers: [LogsService],
   exports: [LogsService],
-
 })
 export class LogsModule {}
