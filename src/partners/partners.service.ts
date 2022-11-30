@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { enumPartners, PartnersEntity } from '../entities/partners.entity';
-import { Repository, UpdateResult } from 'typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class PartnersService {
@@ -39,5 +39,9 @@ export class PartnersService {
 
   async update(id: number, partnersEntity: PartnersEntity) {
     return await this.partnersEntity.update(id, partnersEntity);
+  }
+
+  async delete(id: number) {
+    await this.partnersEntity.delete(id);
   }
 }

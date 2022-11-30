@@ -1,12 +1,11 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Param,
-  Patch,
   Post,
   Put,
-  Req,
 } from '@nestjs/common';
 import { PartnersService } from './partners.service';
 import { PartnersEntity } from '../entities/partners.entity';
@@ -31,10 +30,16 @@ export class PartnersController {
   }
 
   @Put(':id')
-  async update(
-    @Param('id') id: number,
-    @Body() partnersEntity: PartnersEntity,
-  ) {
-    return await this.partnersService.update(id, partnersEntity);
+  update(@Param('id') id: number, @Body() partnersEntity: PartnersEntity) {
+    try {
+      return this.partnersService.update(id, partnersEntity);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: number) {
+    return this.partnersService.delete(id);
   }
 }
